@@ -12,7 +12,9 @@
   "author": "Emre",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.22.1"
+    "ejs": "^4.0.1",
+    "express": "^4.22.1",
+    "mongoose": "^9.1.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
