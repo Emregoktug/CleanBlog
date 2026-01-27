@@ -9,12 +9,14 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required: true,
+  },
   dateCreated: {
     type: Date,
     default: Date.now,
   },
 });
 
-const Post = mongoose.model('Post', PostSchema);
-
-module.exports = Post;
+module.exports = mongoose.model('Post', PostSchema);

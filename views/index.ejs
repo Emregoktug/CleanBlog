@@ -1,56 +1,60 @@
 <%- include('partials/_header') %>
 
 <body>
-
   <%- include('partials/_navigation') %>
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
+  <!-- HERO -->
+  <header class="masthead hero-home">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-        <% posts.forEach(post => { %>
-          <div class="post-preview">
-            <a href="/post">
-              <h2 class="post-title"><%= post.title %></h2>
-              <h3 class="post-subtitle"><%= post.detail %></h3>
-            </a>
-            <p class="post-meta">
-              Posted on <%= post.dateCreated.toDateString() %>
-            </p>
-          </div>
-          <hr>
-        <% }) %>
-
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
-
+      <div class="hero-center">
+        <h1>Our Products</h1>
+        <p class="hero-subtitle">
+          High-tech solutions designed for the future
+        </p>
       </div>
     </div>
   </div>
+</header>
 
-  <hr>
+  <!-- POSTS GRID -->
+  <div class="container my-5">
+    <div class="row">
+
+      <% posts.forEach(post => { %>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100 shadow-sm">
+
+            <img
+              src="<%= post.image %>"
+              class="card-img-top"
+              style="height: 220px; object-fit: cover;"
+              alt="<%= post.title %>"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text">
+                <%= post.detail.substring(0, 100) %>...
+              </p>
+            </div>
+
+            <div class="card-footer bg-white border-0">
+              <a
+                href="/posts/<%= post._id %>"
+                class="btn btn-outline-primary btn-sm"
+              >
+                Detayları Gör →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+  </div>
 
   <%- include('partials/_footer') %>
-
-  <!-- Custom scripts for this template -->
-  <script src="/js/clean-blog.min.js"></script>
-
 </body>
 </html>

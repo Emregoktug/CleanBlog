@@ -1,0 +1,68 @@
+<%- include('partials/_header') %>
+
+<body>
+  <%- include('partials/_navigation') %>
+
+  <header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Add New Post</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <form action="/posts" method="POST" enctype="multipart/form-data">
+
+          <div class="form-group">
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="Post Title"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <textarea
+              name="detail"
+              rows="5"
+              class="form-control"
+              placeholder="Post Detail"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="file"
+              name="image"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Create Post
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <%- include('partials/_footer') %>
+</body>
+</html>
